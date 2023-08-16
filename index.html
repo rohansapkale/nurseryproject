@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+</head>
+<style>
+ body {
+        font-family: 'Ubuntu';
+        font-size: 22px;
+    
+}
+
+/* ... (previous CSS code) ... */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    overflow: hidden;
+    /* position: fixed;    */
+    width: 100%; /* Take up the full width of the viewport */
+    z-index: 1000; /* Ensure the navbar is on top of other elements */
+    top: 109px; /* Position at the top of the viewport */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center align items horizontally */
+}
+.navbar {
+    background-color:white;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Add box shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.navbar a {
+    display: block;
+    color: #0000008c;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background on hover */
+    color: black;
+    list-style-type: circle;
+}
+/* ... (previous CSS code) ... */
+
+/* ... (previous CSS code) ... */
+
+
+
+/* ... (rest of the CSS code) ... */
+
+
+.navbar li {
+    /* No need for float: left; */
+    display: inline; /* Display list items inline */
+    margin: 0 15px; /* Add some spacing between items */
+}
+/*main*/
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 40px;
+    margin-left: 8rem;
+}
+
+.grid-item img {
+    max-width: 55%;
+    height: auto;
+    transition: .3s ease;
+}
+.grid-item img:hover{
+    max-width: 65%;
+}
+/* Project */
+#pr1{
+    margin: 0;
+    padding: 0;
+    margin-top: 20rem;
+    text-align: center;
+
+}
+#pr1 >p{
+    text-align: center;
+}
+
+.slideshow-container {      
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide-content {
+    position: relative;
+}
+
+.slide-text {
+    position: absolute;
+    bottom:10px;
+    left: 0;
+    width: 100%;    
+    color:white;
+    padding: 10px;
+    font-size: 26px;
+    text-align: center;
+}
+img {    
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 75%;
+    width: auto;
+    padding: 16px;
+    margin: -95px;
+    margin-top: -95px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    margin-left: -34px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* ... (previous CSS code) ... */
+
+/* Adjust the existing footer styles */
+/* ... (previous CSS code) ... */
+/* ... (previous CSS code) ... */
+
+footer {
+    background-color: rgb(0 0 0 / 20%);
+    color: white;
+  
+    padding: 10px 0;
+    position: static;
+    width: 100%;
+    bottom: 0; /* Position at the bottom */
+}
+
+.footer-section {
+    padding: 20px;
+    flex: 1;
+    text-align: left;
+ 
+}
+.footer-section i:hover{
+    color: #333;
+}
+.footer-section h3 {
+    margin-top: 0;
+}
+
+.footer-section a {
+    display: block;
+    margin-bottom: 5px;
+    color: #f4f4f4;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+.footer-section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+.icons-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Gap between grid items */
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+}
+
+.icon {
+    font-size: 24px;
+    color: #f4f4f4;
+    cursor: pointer;
+}
+/* ... (previous CSS code) ... */
+
+/* Adjust slide width for larger devices */
+@media only screen and (min-width: 768px) {
+    .slide img {
+        width: 120%; /* Make the images wider for larger screens */
+    }
+}
+
+.sponsor-section {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.sponsor-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sponsor-item {
+    margin: 10px;
+    padding: 10px;
+}
+.company-header {
+    background-color:white;
+    color: #4cbd5f;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Add sticky positioning */
+    top: 0; /* Position the header at the top of the viewport */
+    z-index: 1000; /* Ensure the header is on top of other elements */
+}
+.company-info {
+    margin-left: 20px;
+}
+.header-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 20px;
+}
+.search-bar {
+    position: relative;
+    margin-right: 20px;
+}
+
+#searchInput {
+    padding: 8px;
+    border: white;
+    border-radius: 5px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0,0.2)
+}
+#search-icon{   
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 10rem;
+    top: 1px;
+    font-weight: 600;
+    background: red;
+    padding: 5px;
+}
+.search-prompts {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: none;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#searchInput:focus + #searchPrompts {
+    display: block;
+}
+/* ... (rest of the CSS code) ... */
+
+/* ... (rest of the CSS code) ... */
+/* ... (previous CSS code) ... */
+
+/* Add this media query for tablet and mobile screen sizes */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        display: block; /* Change to block layout for small screens */
+        text-align: center;
+
+    }
+
+    .navbar li {
+        float: none; /* Reset float property */
+        display: block; /* Display list items as block elements */
+        text-align: center; /* Center-align list items */
+        margin: 10px 0; /* Add some vertical spacing */
+    }
+
+    main {
+        padding-top: 100px; /* Increase padding to account for the navbar height */
+    }
+    
+    #pr1{
+        margin-top: 160px;
+        padding: 10px;
+    }
+
+    /* ... (other responsive adjustments) ... */
+}
+
+
+</style>
+<body>
+    <header class="company-header">
+       
+        <div class="company-info">
+            <h1>Company Name</h1>
+        </div>
+        <div class="search-bar" onclick="" >
+            <input type="text" id="searchInput" placeholder="Search">
+            <i class="fa fa-search"id="search-icon"></i>
+            <div class="search-prompts" id="searchPrompts">
+                <p>Plants</p>
+                <p>Herbs</p>
+                <p>Aurvedic remedies</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="navbar">
+            <li><a href="#Track_Order">Track Order</a></li>
+            <li><a href="#My_order">My Order</a></li>
+            <li><a href="#Help">Help</a></li>
+            <li><a href="#Offers">Offers</a></li>
+            <li><a href="#Wishlist">Wishlist</a></li>
+        </ul>
+    </nav>
+    <div class="image-grid">
+        <div class="grid-item"><a href=""><img src="https://nurserylive.com/cdn/shop/files/nurserylive-offers-menu_141x161.png?v=1652634796" alt="Image 1"></a></div>
+        <div class="grid-item"><a href=""><img src="https://nurserylive.com/cdn/shop/files/nurserylive-gardening-menu_141x161.png?v=1652634796" alt="Image 2"></a>
+        
+        
+        
+        </div>
+        <div class="grid-item"><a href=""><img src="https://nurserylive.com/cdn/shop/files/nurserylive-plant-menu_141x161.png?v=1652634796" alt="Image 3"></a></div>
+        <div class="grid-item"><a href=""> <img src="https://nurserylive.com/cdn/shop/files/nurserylive-seeds-menu_141x161.png?v=1652634796" alt="Image 4"></a></div>
+        <div class="grid-item"><a href=""><img src="https://nurserylive.com/cdn/shop/files/nurserylive-corporate-menu_141x161.png?v=1652634796" alt="Image 5"></a></div>
+        <div class="grid-item"><a href=""> <img src="https://nurserylive.com/cdn/shop/files/nurserylive-fertilizer-menu_141x161.png?v=1652967754" alt="Image 6"></a></div>
+    </div>
+  
+    <section id="projects" class="projects-section">       
+        <div class="project"id="pr1">
+            <h3>Our Works</h3>
+            <p>Description of Project 1...</p>     
+          
+        </div>
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide fade">
+                <div class="slide-content">
+                    <img src="https://picsum.photos/id/337/500/500" alt="Slide 1">
+                    <div class="slide-text">MRP 10% off on Herbs</div>
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide fade">
+                <div class="slide-content">
+                    <img src="https://picsum.photos/id/347/500/500" alt="Slide 2">
+                    <div class="slide-text">Explore our new products.</div>
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide fade">
+                <div class="slide-content">
+                    <img src="https://picsum.photos/id/230/500/500" alt="Slide 3">
+                    <div class="slide-text">follow us on social media </div>
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+        </div>
+        <main>
+            <section id="projects" class="projects-section">
+                <!-- ... (projects section code) ... -->
+            </section>
+        </main>    
+            <!-- Add Sponsor Section -->
+            <div class="icons-section">
+                <div class="icon"><i class="fas fa-home"></i></div>
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div class="icon"><i class="fas fa-question-circle"></i></div>
+                <div class="icon"><i class="fas fa-cog"></i></div>
+            </div>
+       
+   <footer>
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <p>Stay updated with our latest news and events.</p>
+        <a href="#"><i style="font-size:34px; " class="fab fa-facebook"></i></i></a>
+        <a href="#"><i  style="font-size:34px;"  class="fab fa-twitter"></i></i></a>
+        <a href="#"><i  style="font-size:34px;"  class="fab fa-instagram"></i></a>
+        <a href="#"><i  style="font-size:34px;"  class="fab fa-linkedin"></i></a>
+
+    </div>
+    
+    <div class="footer-section">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </div>
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+</footer>
+</body>
+<script>
+    let slideIndex = 1;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName("slide");
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    }    
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    
+    slides[slideIndex - 1].style.display = "block";  
+}
+// Add this code to the existing script.js
+
+// Get the navbar element
+const navbar = document.querySelector('.navbar');
+
+// Get the initial offset position of the navbar
+const navbarOffsetTop = navbar.offsetTop;
+
+// Function to update the navbar's position on scroll
+function updateNavbarPosition() {
+    if (window.pageYOffset >= navbarOffsetTop) {
+        navbar.classList.add('sticky');
+    } else {
+        navbar.classList.remove('sticky');
+    }
+}
+
+// Attach the scroll event listener
+window.addEventListener('scroll', updateNavbarPosition);
+
+// Call the function on page load
+updateNavbarPosition();
+
+</script>
+</html>
